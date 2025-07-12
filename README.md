@@ -39,16 +39,6 @@
 
 ---
 
-## 📂 Database Schema
-
-Includes the following tables:
-- `users`, `questions`, `answers`, `tags`, `question_tags`
-- `votes`, `comments`, `notifications`, `user_mentions`
-
-All schema definitions are available in `/docs/sql-schema.sql`.
-
----
-
 ## ⚙️ Getting Started
 
 1. **Clone the Repository**
