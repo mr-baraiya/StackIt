@@ -1,15 +1,37 @@
+﻿using StackItAPIs.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Add services to the container
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configure SQL Server DbContext
+builder.Services.AddDbContext<StackItContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("myConnectionString"))
+);
+
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", policy =>
+    {
+        policy.WithOrigins("http://localhost:7027") // Vite/React dev server
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+//builder.WebHost.ConfigureKestrel(serverOptions =>
+//{
+//    serverOptions.ListenAnyIP(6000); // change to your desired port 
+//});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the middleware pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -17,6 +39,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Apply CORS
+app.UseCors("AllowLocalhost");
 
 app.UseAuthorization();
 
