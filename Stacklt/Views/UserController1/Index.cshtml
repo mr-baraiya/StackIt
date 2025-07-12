@@ -1,0 +1,57 @@
+﻿@model Stacklt.Models.UserModel
+
+@{
+    ViewBag.Title = "User Details";
+}
+
+<h2>User Profile</h2>
+
+@if (Model != null)
+{
+    <div style="max-width:600px; margin:auto; padding:20px; border:1px solid #ccc; border-radius:10px;">
+        <div style="text-align:center;">
+            <img src="@Model.ProfilePictureUrl" alt="Profile Picture" style="width:150px; height:150px; border-radius:50%;" />
+        </div>
+
+        <h3 style="text-align:center;">@Model.FullName (@Model.Username)</h3>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>Email</th>
+                <td>@Model.Email</td>
+            </tr>
+            <tr>
+                <th>Bio</th>
+                <td>@Model.Bio</td>
+            </tr>
+            <tr>
+                <th>Reputation</th>
+                <td>@Model.Reputation</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>@Model.Role</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>@(Model.IsActive ? "Yes" : "No")</td>
+            </tr>
+            <tr>
+                <th>Banned</th>
+                <td>@(Model.IsBanned ? "Yes" : "No")</td>
+            </tr>
+            <tr>
+                <th>Created At</th>
+                <td>@Model.CreatedAt.ToString("dd-MMM-yyyy hh:mm tt")</td>
+            </tr>
+            <tr>
+                <th>Updated At</th>
+                <td>@Model.UpdatedAt.ToString("dd-MMM-yyyy hh:mm tt")</td>
+            </tr>
+        </table>
+    </div>
+}
+else
+{
+    <p>User not found.</p>
+}

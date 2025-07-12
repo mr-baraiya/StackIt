@@ -1,3 +1,4 @@
+Create database StackIt
 use StackIt 
 
 -- 1. Users
@@ -203,5 +204,3 @@ SELECT * FROM Comments;
 
 -- 8. Notifications
 SELECT * FROM Notifications;
-
-

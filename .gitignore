@@ -3,71 +3,90 @@ bin/
 obj/
 out/
 
-## Rider project files
-.idea/
-
-## VS Code settings
-.vscode/
+## ASP.NET publish outputs
+wwwroot/dist/
+wwwroot/node_modules/
+publish/
+dist/
+build/
 
 ## User-specific files
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
+*.vspscc
+*.vssscc
+*.psess
+*.vsp
+*.pdb
+*.cache
+*.dbmdl
 
-## ASP.NET Secrets
-secrets.json
+## Visual Studio specific folders
+.vs/
 
-## ASP.NET publish outputs
-wwwroot/dist/
-wwwroot/node_modules/
+## Rider project files
+.idea/
+*.sln.iml
+.idea/.idea.DotSettings
+
+## VS Code settings
+.vscode/
 
 ## DotCover
 *.dotCover
 
 ## Logs
 *.log
+logs/
+Log/
+log/
 
-## Packages
+## NuGet Packages
 *.nupkg
 *.snupkg
 packages/
 .nuget/
 
-## Backup files
+## Backup and temp files
 *.bak
 *.tmp
 *.swp
+*.swo
 
 ## Database files
 *.mdf
 *.ldf
 
-## Others
-*.DS_Store
-Thumbs.db
-
-## Entity Framework Migrations (optional if auto-generated)
-Migrations/
+## ASP.NET Secrets
+**/secrets.json
 
 ## Launch settings
 Properties/launchSettings.json
 
-## Local environment config
+## App configuration
 appsettings.Development.json
 appsettings.Local.json
+appsettings.*.json
 
-## HTTP REPL/REST Client history
+## Test Results
+TestResults/
+*.TestResults/
+
+## Entity Framework Migrations (optional)
+Migrations/
+
+## HTTP REPL / REST Client history
 *.http
 
-# Optional - ignore Visual Studio-specific project folders
-.vs/
+## Miscellaneous system files
+*.DS_Store
+Thumbs.db
 
-# Optional - ignore JetBrains Rider
-.idea/
+## Compiled DLLs and executables
+*.dll
+*.exe
 
-# Optional - ignore test result files
-TestResults/
-
-# Optional - ignore user secrets (if using)
-**/secrets.json
+## Windows shortcuts
+*.lnk

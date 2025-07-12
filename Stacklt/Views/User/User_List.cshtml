@@ -1,0 +1,59 @@
+﻿@model List<Stacklt.Models.UserModel>
+
+<div class="container mb-5">
+    <a asp-controller="User" asp-action="AddEdit" class="btn btn-warning text-light" tabindex="0">Apply now</a>
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover mb-5">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                    <th>Reputation</th>
+                    <th>Status</th>
+                    <th>Banned</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Username</td>
+                            <td>@item.Email</td>
+                            <td>••••••••</td> <!-- Masked for security -->
+                            <td>@item.Role</td>
+                            <td>@item.Reputation</td>
+                            <td>@(item.IsActive ? "Active" : "Inactive")</td>
+                            <td>@(item.IsBanned ? "Yes" : "No")</td>
+                            <td>
+                                <a asp-action="AddEdit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                                <a asp-controller="User" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="9" class="text-center">No users found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
