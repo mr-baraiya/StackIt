@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Smart Question Box</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: #f7f9fc url('images/background-shape/feature-bg-2.png') top right no-repeat;
+                background-size: 300px auto;
+            }
+
+            .header {
+                background: #fff;
+                padding: 20px;
+                border-bottom: 1px solid #ddd;
+                position: relative;
+                z-index: 2;
+            }
+
+            .header-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                margin: 0;
+                color: #333;
+            }
+
+            .header-actions {
+                display: flex;
+                align-items: center;
+                margin-top: 10px;
+            }
+
+            .icon-btn {
+                background: none;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+
+            .search-section {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 15px;
+            }
+
+            .search-container {
+                position: relative;
+                flex: 1;
+                margin-right: 10px;
+                min-width: 200px;
+            }
+
+            .search-input {
+                width: 100%;
+                padding: 10px 35px 10px 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .search-icon {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #888;
+            }
+
+            .login-header-btn {
+                padding: 8px 16px;
+                border: none;
+                background: #007bff;
+                color: #fff;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+
+            .filter-bar {
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .filter-bar span {
+                font-weight: bold;
+            }
+
+            .filter-dropdown {
+                padding: 5px;
+                margin-top: 10px;
+            }
+
+            .questions-list {
+                padding: 20px;
+                max-width: 900px;
+                margin: auto;
+                position: relative;
+                z-index: 2;
+            }
+
+            .question-card {
+                background: #fff url('images/background-shape/green-dot.png') top right no-repeat;
+                background-size: 60px;
+                padding: 15px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+                transition: transform 0.2s ease;
+            }
+
+            .question-card:hover {
+                transform: translateY(-3px);
+            }
+
+            .question-title {
+                margin: 0 0 10px;
+                font-size: 18px;
+                color: #007bff;
+            }
+
+            .question-desc {
+                margin: 0 0 10px;
+                color: #555;
+            }
+
+            .question-meta {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-bottom: 10px;
+            }
+
+            .tags .tag {
+                display: inline-block;
+                background: #eef;
+                color: #3366cc;
+                padding: 2px 6px;
+                margin-right: 5px;
+                border-radius: 3px;
+                font-size: 12px;
+                margin-top: 5px;
+            }
+
+            .stats span {
+                margin-left: 10px;
+                font-size: 12px;
+                color: #666;
+                margin-top: 5px;
+            }
+
+            .question-user {
+                font-size: 12px;
+                color: #999;
+            }
+
+            .pagination {
+                text-align: center;
+                padding: 20px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .page-btn {
+                background: #fff;
+                border: 1px solid #ccc;
+                padding: 5px 10px;
+                margin: 0 3px;
+                cursor: pointer;
+                border-radius: 3px;
+            }
+
+            .page-btn.active {
+                background: #007bff;
+                color: #fff;
+                border-color: #007bff;
+            }
+
+            /* Background shape animations */
+            .bg-shape {
+                position: absolute;
+                z-index: 0;
+                opacity: 0.1;
+                animation: float 6s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+
+                100% {
+                    transform: translateY(0);
+                }
+            }
+
+            /* Responsive */
+            @media(max-width:600px) {
+
+                .header-top,
+                .filter-bar,
+                .search-section {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .header-actions {
+                    margin-top: 10px;
+                }
+
+                .login-header-btn {
+                    margin-top: 10px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Background shapes -->
+        <img class="bg-shape" src="images/background-shape/feature-bg-1.png" style="top:20px; left:20px; width:100px;">
+        <img class="bg-shape" src="images/background-shape/green-half-cycle.png"
+            style="bottom:20px; right:20px; width:100px;">
+
+        <div id="home-screen" class="screen">
+            <div class="header">
+                <div class="header-top">
+                    <a href="index.html">QueryNest</a>
+                    <div class="header-actions">
+                        <button class="icon-btn" onclick="alert('Show Ask Question Screen')">➕</button>
+                        <button class="icon-btn">👤</button>
+                    </div>
+                </div>
+
+                <div class="search-section">
+                    <div class="search-container">
+                        <input type="text" placeholder="Search..." class="search-input" />
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
+
+                <div class="filter-bar">
+                    <span>Ask Any Question</span>
+                    <select class="filter-dropdown">
+                        <option>Newest ▼</option>
+                        <option>Unanswered</option>
+                        <option>Popular</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="questions-list">
+                <div class="question-card">
+                    <h3 class="question-title">How to join 2 columns in SQL?</h3>
+                    <p class="question-desc">I need help combining first name and last name into a single column...</p>
+                    <div class="question-meta">
+                        <div class="tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Data</span>
+                        </div>
+                        <div class="stats">
+                            <span>3 answers</span>
+                            <span>5 votes</span>
+                        </div>
+                    </div>
+                    <p class="question-user">User Name</p>
+                </div>
+
+                <div class="question-card">
+                    <h3 class="question-title">What is a JOIN in databases?</h3>
+                    <p class="question-desc">Please explain the concept of JOIN operations in SQL with examples...</p>
+                    <div class="question-meta">
+                        <div class="tags">
+                            <span class="tag">SQL</span>
+                        </div>
+                        <div class="stats">
+                            <span>1 answer</span>
+                            <span>2 votes</span>
+                        </div>
+                    </div>
+                    <p class="question-user">User Name</p>
+                </div>
+
+                <div class="question-card">
+                    <h3 class="question-title">Difference between INNER and LEFT JOIN?</h3>
+                    <p class="question-desc">How do INNER JOIN and LEFT JOIN differ in practice?</p>
+                    <div class="question-meta">
+                        <div class="tags">
+                            <span class="tag">SQL</span>
+                        </div>
+                        <div class="stats">
+                            <span>0 answers</span>
+                            <span>1 vote</span>
+                        </div>
+                    </div>
+                    <p class="question-user">User Name</p>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="page-btn">‹</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">›</button>
+            </div>
+        </div>
+    </body>
+
+</html>

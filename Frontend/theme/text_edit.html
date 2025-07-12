@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ask a Question</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: #f7f9fc;
+            }
+
+            .header {
+                background: #fff;
+                padding: 20px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .header-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .header-left {
+                display: flex;
+                align-items: center;
+            }
+
+            .back-btn {
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+
+            .logo {
+                margin: 0;
+                font-size: 20px;
+                color: #333;
+            }
+
+            .header-actions .icon-btn {
+                background: none;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+
+            .heading {
+                text-align: center;
+                margin: 20px 0;
+                font-size: 24px;
+                color: #333;
+            }
+
+            .form-container {
+                max-width: 900px;
+                background: #fff;
+                margin: 30px auto;
+                padding: 20px;
+                border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 6px;
+                color: #333;
+            }
+
+            .form-input {
+                width: 90%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 14px;
+            }
+
+            .label-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .label-hint {
+                font-size: 12px;
+                color: #777;
+            }
+
+            .rich-editor {
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background: #fafafa;
+            }
+
+            .editor-toolbar {
+                border-bottom: 1px solid #ddd;
+                display: flex;
+                flex-wrap: wrap;
+                background: #f0f0f0;
+            }
+
+            .toolbar-btn {
+                background: none;
+                border: none;
+                font-size: 14px;
+                padding: 8px 10px;
+                cursor: pointer;
+            }
+
+            .toolbar-btn:hover {
+                background: #e0e0e0;
+            }
+
+            .editor-content {
+                width: 100%;
+                min-height: 150px;
+                border: none;
+                padding: 10px;
+                resize: vertical;
+                font-family: inherit;
+                font-size: 14px;
+                background: #fff;
+            }
+
+            .submit-btn {
+                background-color: #ffffff;
+                color: #000000;
+                border: 1px solid #000;
+                padding: 0.6rem 1.2rem;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .submit-btn:hover {
+                background-color: #000000;
+                color: #ffffff;
+                transform: scale(1.05);
+            }
+
+            .submit-btn.btn-light {
+                background-color: #f8f9fa;
+                /* light grey */
+                color: #000000;
+                border: 1px solid #000;
+            }
+
+            .submit-btn.btn-light:hover {
+                background-color: #ffffff;
+                color: #000000;
+                transform: scale(1.05);
+            }
+
+            .submit-btn.btn-light:hover {
+                background-color: #000000;
+                color: #ffffff;
+                transform: scale(1.05);
+            }
+
+
+            @media(max-width:600px) {
+                .header-top {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .header-actions {
+                    margin-top: 10px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="ask-screen" class="screen">
+            <div class="header">
+                <div class="header-top">
+                    <div class="header-left">
+                        <a href="index.html" class="logo">QueryNest</a>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h1 class="heading">Ask a Question</h1>
+            </div>
+
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-input" placeholder="Enter your question title...">
+                </div>
+
+                <div class="form-group">
+                    <div class="label-row">
+                        <label>Description</label>
+                        <span class="label-hint">HTML Rich Text</span>
+                    </div>
+                    <div class="rich-editor">
+                        <div class="editor-toolbar">
+                            <button class="toolbar-btn"><b>B</b></button>
+                            <button class="toolbar-btn"><i>I</i></button>
+                            <button class="toolbar-btn"><u>U</u></button>
+                            <button class="toolbar-btn">≡</button>
+                            <button class="toolbar-btn">•</button>
+                            <button class="toolbar-btn">1.</button>
+                            <button class="toolbar-btn">""</button>
+                            <button class="toolbar-btn">&lt;&gt;</button>
+                            <button class="toolbar-btn">🔗</button>
+                            <button class="toolbar-btn">📷</button>
+                        </div>
+                        <textarea class="editor-content" placeholder="Describe your question in detail..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Tags</label>
+                    <input type="text" class="form-input" placeholder="Add a tag (e.g., react,javascript, css)">
+                </div>
+
+                <button class="submit-btn">Submit</button>
+                <button class="submit-btn btn-light">Cancel</button>
+            </div>
+        </div>
+
+    </body>
+
+</html>
