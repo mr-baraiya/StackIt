@@ -24,11 +24,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-//builder.WebHost.ConfigureKestrel(serverOptions =>
-//{
-//    serverOptions.ListenAnyIP(6000); // change to your desired port 
-//});
-
 var app = builder.Build();
 
 // Configure the middleware pipeline
