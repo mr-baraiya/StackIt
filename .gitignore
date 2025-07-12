@@ -1,0 +1,73 @@
+## Build Results
+bin/
+obj/
+out/
+
+## Rider project files
+.idea/
+
+## VS Code settings
+.vscode/
+
+## User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## ASP.NET Secrets
+secrets.json
+
+## ASP.NET publish outputs
+wwwroot/dist/
+wwwroot/node_modules/
+
+## DotCover
+*.dotCover
+
+## Logs
+*.log
+
+## Packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+## Backup files
+*.bak
+*.tmp
+*.swp
+
+## Database files
+*.mdf
+*.ldf
+
+## Others
+*.DS_Store
+Thumbs.db
+
+## Entity Framework Migrations (optional if auto-generated)
+Migrations/
+
+## Launch settings
+Properties/launchSettings.json
+
+## Local environment config
+appsettings.Development.json
+appsettings.Local.json
+
+## HTTP REPL/REST Client history
+*.http
+
+# Optional - ignore Visual Studio-specific project folders
+.vs/
+
+# Optional - ignore JetBrains Rider
+.idea/
+
+# Optional - ignore test result files
+TestResults/
+
+# Optional - ignore user secrets (if using)
+**/secrets.json
