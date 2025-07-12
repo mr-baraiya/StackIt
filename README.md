@@ -46,3 +46,11 @@
    ```bash
    git clone https://github.com/your-username/stackit-platform.git
    cd stackit-platform
+<h3>👥 Team Members</h3>
+
+| Name       | Role              |
+|-------------|-------------------------|
+| Vishal Baraiya    | Backend Development          |
+| Mansi Nimavat     | Consuming API in Frontend    |
+| Nency Parmar    | Frontend Development |
+| Darshi Kathrani        | Bug Solving & AI Support |
