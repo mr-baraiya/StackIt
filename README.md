@@ -5,14 +5,14 @@ Built using **ASP.NET MVC**, it offers essential Q&A functionality while keeping
 
 ---
 
-## 👥 Team Members
+### 💻 Team Contribution Summary
 
-| 👤 Name             | 💼 Responsibility             | 🔧 Contribution Highlights                                                  |
-|--------------------|-------------------------------|-----------------------------------------------------------------------------|
-| **Vishal Baraiya** | 🔙 Backend Developer           | Designed and developed secure RESTful APIs using **ASP.NET Core**           |
-| **Mansi Nimavat**  | 🔗 API Integration (Frontend)  | Integrated backend APIs into views using **AJAX**, **jQuery**, and **Fetch** |
-| **Nency Parmar**   | 🎨 Frontend Developer (UI/UX)  | Created responsive interfaces with **ASP.NET MVC** and **Bootstrap**         |
-| **Darshi Kathrani**| 🐞 QA & AI Integration Support | Tested modules, identified bugs, and supported basic **AI features**         |
+| 👤 Name             | 💼 Responsibility              | 🔧 Contribution Highlights                                                                 |
+| ------------------- | ------------------------------ | ------------------------------------------------------------------------------------------ |
+| **Vishal Baraiya**  | 🔙 Backend Developer           | Designed and developed secure RESTful APIs using **ASP.NET Core** and integrated **SQL**   |
+| **Mansi Nimavat**   | 🔗 API Integration (Frontend)  | Connected backend APIs using **Fetch**, **Axios**, and **React Hooks** in **Next.js**      |
+| **Nency Parmar**    | 🎨 Frontend Developer (UI/UX)  | Built responsive, accessible UI using **Next.js**, **Tailwind CSS**, and **shadcn/ui**     |
+| **Darshi Kathrani** | 🐞 QA & AI Integration Support | Tested core features, resolved UI bugs, and supported **basic AI utilities** using **NPM** |
 
 ---
 
@@ -47,10 +47,3 @@ Built using **ASP.NET MVC**, it offers essential Q&A functionality while keeping
   - Your answer is upvoted
   - Your answer is accepted
   - Your question receives attention
-
----
-
-✅ Let me know if you'd like:
-- A polished footer with license or acknowledgments  
-- Badges (build, tech stack, etc.)  
-- Demo GIF or screenshots section  
